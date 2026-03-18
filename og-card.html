@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, initial-scale=1.0">
+  <title>OG Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500;600&family=Montserrat:wght@700;800;900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #e8187a;
+      --pink-light: #ff4da6;
+      --yellow: #ffe634;
+      --black: #0a0a0a;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      margin: 0;
+      overflow: hidden;
+      background: #0a0a0a;
+      font-family: "Barlow", sans-serif;
+    }
+    body {
+      position: relative;
+      color: white;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(232, 24, 122, 0.35), transparent 18%),
+        radial-gradient(circle at 8% 84%, rgba(255, 230, 52, 0.18), transparent 16%),
+        linear-gradient(135deg, #0a0a0a 0%, #171117 56%, #2a1121 100%);
+    }
+    .top-strip {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 18px;
+      background: var(--yellow);
+      border-bottom: 4px solid var(--black);
+    }
+    .hex {
+      position: absolute;
+      opacity: 0.08;
+      border: 2px solid white;
+      clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+    }
+    .hex.a { top: 72px; right: 86px; width: 220px; height: 220px; }
+    .hex.b { bottom: 74px; left: 58px; width: 120px; height: 120px; }
+    .wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      padding: 58px 70px 54px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 12px;
+    }
+    .brand {
+      font-family: "Noto Serif Display", serif;
+      font-size: 34px;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+    }
+    .brand span { color: var(--pink); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      background: var(--pink);
+      color: white;
+      padding: 8px 14px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      font-family: "Barlow", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 82px;
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      text-transform: uppercase;
+      max-width: 690px;
+    }
+    h1 .pink { color: var(--pink); display: block; }
+    h1 .yellow { color: var(--yellow); display: block; }
+    .sub {
+      margin-top: 24px;
+      max-width: 650px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 28px;
+      line-height: 1.35;
+      font-weight: 500;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .chip {
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      width: 100%;
+      max-width: 360px;
+      background: linear-gradient(145deg, var(--pink) 0%, #8b0f52 100%);
+      box-shadow: 12px 12px 0 var(--yellow), 24px 24px 0 rgba(232, 24, 122, 0.18);
+      padding: 34px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 54px 54px;
+      opacity: 0.35;
+    }
+    .card-inner { position: relative; z-index: 2; }
+    .card-top {
+      color: rgba(255,255,255,0.62);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .card-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: 42px;
+      line-height: 0.96;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+    .card-title span { display: block; color: var(--yellow); }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 26px;
+    }
+    .pill {
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.12);
+    }
+    .cta {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 12px 18px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .card-brand {
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      font-family: "Noto Serif Display", serif;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.52);
+    }
+  </style>
+</head>
+<body>
+  <div class="top-strip"></div>
+  <div class="hex a"></div>
+  <div class="hex b"></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="brand">Integrity <span>Peptides</span></div>
+      <div class="eyebrow">Quick Consultation</div>
+      <h1>
+        Ready To Talk
+        <span class="pink">About Peptides?</span>
+        <span class="yellow">Book Your Consult</span>
+      </h1>
+      <div class="sub">Weight loss, recovery, energy, and healthy aging support with a fast path to a real conversation.</div>
+      <div class="chips">
+        <div class="chip">Calendar First</div>
+        <div class="chip">Quick Contact Backup</div>
+        <div class="chip">Education First</div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-top">Integrity Peptides • Consultation</div>
+          <div class="card-title">Book Your <span>Peptide Consult</span></div>
+          <div class="pill-row">
+            <div class="pill">Weight Loss</div>
+            <div class="pill">Recovery</div>
+            <div class="pill">Energy</div>
+            <div class="pill">Longevity</div>
+          </div>
+          <div class="cta">Book Consultation</div>
+          <div class="card-brand">Integrity Peptides</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
