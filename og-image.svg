@@ -1,0 +1,92 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="94" y1="52" x2="1080" y2="602" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111111"/>
+      <stop offset="1" stop-color="#250F1C"/>
+    </linearGradient>
+    <filter id="blurPink" x="764" y="-96" width="436" height="436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="48"/>
+    </filter>
+    <filter id="blurYellow" x="-58" y="350" width="308" height="308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="42"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g opacity="0.9">
+    <rect x="0" y="0" width="1200" height="18" fill="#FFE634"/>
+    <rect x="0" y="18" width="1200" height="4" fill="#0A0A0A"/>
+  </g>
+
+  <g filter="url(#blurPink)">
+    <circle cx="982" cy="122" r="122" fill="#E8187A" fill-opacity="0.5"/>
+  </g>
+
+  <g filter="url(#blurYellow)">
+    <circle cx="96" cy="504" r="82" fill="#FFE634" fill-opacity="0.42"/>
+  </g>
+
+  <g opacity="0.09" stroke="white" stroke-width="2">
+    <polygon points="930,56 1020,108 1020,212 930,264 840,212 840,108"/>
+    <polygon points="930,98 985,130 985,190 930,222 875,190 875,130"/>
+    <circle cx="930" cy="160" r="24"/>
+    <polygon points="146,390 212,428 212,504 146,542 80,504 80,428"/>
+    <circle cx="146" cy="466" r="16"/>
+  </g>
+
+  <text x="84" y="112" fill="white" font-family="'Noto Serif Display', serif" font-size="34" letter-spacing="2.5">
+    Integrity <tspan fill="#E8187A">Peptides</tspan>
+  </text>
+
+  <g>
+    <path d="M84 154H302L290 176H72L84 154Z" fill="#E8187A"/>
+    <text x="102" y="173" fill="white" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="3.2">
+      QUICK CONSULTATION
+    </text>
+  </g>
+
+  <text x="84" y="252" fill="white" font-family="'Montserrat', Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-2">
+    READY TO TALK
+  </text>
+  <text x="84" y="334" fill="white" font-family="'Montserrat', Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-2">
+    ABOUT <tspan fill="#E8187A">PEPTIDES?</tspan>
+  </text>
+  <text x="84" y="416" fill="white" font-family="'Montserrat', Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-2">
+    <tspan fill="#FFE634">BOOK YOUR CONSULT</tspan>
+  </text>
+
+  <text x="88" y="474" fill="rgba(255,255,255,0.74)" font-family="Arial, sans-serif" font-size="28">
+    Weight Loss • Recovery • Energy • Longevity
+  </text>
+
+  <g>
+    <rect x="760" y="154" width="334" height="364" fill="white"/>
+    <rect x="760" y="154" width="334" height="6" fill="#E8187A"/>
+    <path d="M1008 136H1088V160H996L1008 136Z" fill="#FFE634"/>
+    <text x="1018" y="152" fill="#0A0A0A" font-family="Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2">
+      BOOK NOW
+    </text>
+    <path d="M784 184H974L966 200H776L784 184Z" fill="#FFE634"/>
+    <text x="801" y="198" fill="#0A0A0A" font-family="Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="2.2">
+      MOST DIRECT WAY TO GET STARTED
+    </text>
+
+    <rect x="792" y="228" width="270" height="56" rx="0" fill="#FAFAF8" stroke="#DAD6CF"/>
+    <rect x="792" y="302" width="270" height="56" rx="0" fill="#FAFAF8" stroke="#DAD6CF"/>
+    <rect x="792" y="376" width="270" height="56" rx="0" fill="#FAFAF8" stroke="#DAD6CF"/>
+    <path d="M808 456H1062V502H808L818 456Z" fill="#E8187A"/>
+    <text x="846" y="485" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2.4">
+      BOOK CONSULTATION
+    </text>
+  </g>
+
+  <g opacity="0.85">
+    <rect x="84" y="536" width="184" height="34" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)"/>
+    <rect x="282" y="536" width="160" height="34" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)"/>
+    <rect x="456" y="536" width="220" height="34" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)"/>
+    <text x="103" y="558" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">CALENDAR FIRST</text>
+    <text x="305" y="558" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">QUICK CONTACT</text>
+    <text x="476" y="558" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">REAL GUIDANCE. REAL TEAM.</text>
+  </g>
+</svg>
