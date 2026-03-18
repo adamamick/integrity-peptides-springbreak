@@ -263,9 +263,64 @@
   }
   .photo-box.tall { aspect-ratio: 4/5; }
   .photo-inner { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--mid);font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase; padding: 20px; text-align: center; }
+  .team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .person-caption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    background: rgba(10,10,10,0.86);
+    color: white;
+    padding: 14px 16px;
+    border-left: 4px solid var(--pink);
+  }
+  .person-caption strong {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+  }
+  .person-caption span {
+    display: block;
+    color: rgba(255,255,255,0.74);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
   .about-body { font-size: 0.97rem; color: var(--mid); line-height: 1.82; margin-bottom: 18px; }
   .about-body strong { color: var(--black); font-weight: 700; }
   .callout { background: var(--black); color: var(--yellow); padding: 18px 22px; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; border-left: 4px solid var(--pink); margin-top: 26px; }
+  .person-note {
+    margin-top: 18px;
+    padding: 16px 18px;
+    background: white;
+    border-left: 4px solid var(--pink);
+    border-top: 2px solid var(--black);
+    box-shadow: 6px 6px 0 rgba(232,24,122,0.08);
+  }
+  .person-note strong {
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--black);
+  }
+  .person-note span {
+    color: var(--mid);
+    line-height: 1.7;
+    font-size: 0.92rem;
+    display: block;
+  }
 
   .dark-sec { background: var(--black); }
   .prog-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
@@ -275,6 +330,105 @@
   .prog-title { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:800; text-transform:uppercase; color:white; line-height:1.25; }
   .prog-bar { width:42px; height:3px; background:var(--pink); margin:14px 0; }
   .prog-desc { color:rgba(255,255,255,0.62); line-height:1.75; font-size:0.92rem; }
+
+  .video-grid { display:grid; grid-template-columns: 1.05fr 0.95fr; gap:48px; align-items:start; }
+  .vid-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border: 3px solid var(--black);
+    background: var(--gray);
+    overflow: hidden;
+    box-shadow: 10px 10px 0 rgba(232,24,122,0.12);
+  }
+  .vid-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+  .video-link {
+    position: absolute;
+    inset: 0;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .video-link img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .video-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.08) 0%, rgba(10,10,10,0.22) 100%);
+  }
+  .play-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: rgba(10,10,10,0.82);
+    border: 3px solid var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+  }
+  .play-badge::before {
+    content: '';
+    margin-left: 6px;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 24px solid var(--yellow);
+  }
+  .video-link-text {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 2;
+    background: rgba(10,10,10,0.84);
+    color: white;
+    padding: 14px 16px;
+    border-left: 4px solid var(--pink);
+  }
+  .video-link-text strong {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .video-link-text span {
+    display: block;
+    color: rgba(255,255,255,0.76);
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+  .video-copy p { color: var(--mid); line-height: 1.82; font-size: 0.97rem; margin-top: 14px; }
+  .video-list { margin-top: 18px; display:grid; gap:10px; }
+  .video-item {
+    display:flex; gap:12px; align-items:flex-start;
+    font-size:0.94rem; line-height:1.7; color:var(--mid);
+  }
+  .video-item strong { color: var(--black); }
+  .video-check {
+    width: 24px; height: 24px; flex-shrink: 0;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--yellow); color: var(--black);
+    border: 2px solid var(--black);
+    font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:900;
+    margin-top: 2px;
+  }
 
   .faq-layout { display: grid; grid-template-columns: 5fr 7fr; gap: 76px; align-items: start; }
   .faq-sticky { position: sticky; top: 96px; }
@@ -316,6 +470,7 @@
   @media (max-width: 980px) {
     .hero,
     .about-grid,
+    .video-grid,
     .faq-layout,
     .contact-grid,
     .stats-inner,
@@ -365,9 +520,9 @@
       <div style="position:absolute;top:-14px;right:18px;background:var(--yellow);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:0.13em;padding:3px 10px;z-index:2;">BOOK NOW</div>
       <div class="booking-cue">Most Direct Way To Get Started</div>
       <iframe
-        src="https://api.leadconnectorhq.com/widget/booking/43zo8DL6SzvzhSVWxHej"
+        src="https://api.leadconnectorhq.com/widget/booking/y1R25E5XwdauwTbCcqAN"
         style="width:100%;height:560px;border:none;border-radius:0;display:block;"
-        id="inline-43zo8DL6SzvzhSVWxHej"
+        id="inline-y1R25E5XwdauwTbCcqAN"
         title="Book Consultation"
       ></iframe>
       <p class="form-note">Prefer contact first? Use the quick form below.</p>
@@ -420,9 +575,10 @@
     <div class="about-grid">
       <div class="reveal-left">
         <div class="photo-box tall">
-          <div class="photo-inner">
-            Integrity Peptides Consultation
-            <div style="max-width:340px;font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:900;color:var(--black);letter-spacing:-0.02em;line-height:1.1;">Get educated. Ask questions. See if the next step is right for you.</div>
+          <img src="destinee-thorson.webp" alt="Destinee Thorson" class="team-photo">
+          <div class="person-caption">
+            <strong>Destinee Thorson</strong>
+            <span>Peptide Patient Care Coordinator guiding your first conversation and helping you feel clear, supported, and confident about your next step.</span>
           </div>
         </div>
       </div>
@@ -431,7 +587,12 @@
         <h2>GET CLEAR ON<br><span class="pk">YOUR OPTIONS</span></h2>
         <p class="about-body">This page is built for one purpose: to help serious prospects connect with <strong>Integrity Peptides</strong> quickly. Instead of sending people through a free-guide flow, this consultation page puts the next step right in front of them.</p>
         <p class="about-body">Use this consultation to ask questions, understand which peptide category may align with your goals, and get clarity around what the next step looks like with a real medical team behind you.</p>
+        <p class="about-body">When someone books or fills out the quick contact form, they are not getting dropped into a faceless system. <strong>Destinee Thorson</strong>, our <strong>Peptide Patient Care Coordinator</strong>, will be one of the first people to connect with them, answer questions, and help guide them through the beginning of their peptide journey.</p>
         <p class="about-body">If someone is ready, they can book immediately. If they need contact first, the quick form below makes that easy too.</p>
+        <div class="person-note">
+          <strong>Real Human Follow-Up</strong>
+          <span>This consult flow is designed so prospects hear from an actual person on the Integrity Peptides team who can chat with them, answer questions, and help them feel comfortable and supported through the next step.</span>
+        </div>
         <div class="callout">Education first. Real guidance. Real team.</div>
       </div>
     </div>
@@ -473,6 +634,39 @@
             title="Quick Contact"
           ></iframe>
           <p class="form-note">Leave your name, email, and phone if you want the team to reach out first.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="video-grid">
+      <div class="reveal">
+        <div class="sec-label pink">Real and Transparent</div>
+        <h2>SEE WHAT A REAL PEPTIDE<br><span class="pk">DELIVERY LOOKS LIKE</span></h2>
+        <div class="video-copy">
+          <p>If someone has been curious about peptide therapy but is unsure what the process actually looks like, this unboxing video helps remove a lot of that uncertainty right away.</p>
+          <p>It walks through what patients receive when a peptide order arrives, including how packaging, temperature control, and supplies are handled under medical guidance. The thumbnail features Ashley Wisroth, who is a familiar face across the brand, which helps make the section feel natural to the rest of the page.</p>
+          <div class="video-list">
+            <div class="video-item"><span class="video-check">✓</span><span><strong>What patients receive:</strong> temperature-controlled packaging, insulin syringes, alcohol wipes, and prescribed peptide vials.</span></div>
+            <div class="video-item"><span class="video-check">✓</span><span><strong>What it helps answer:</strong> what the delivery looks like, how it is packed, and what to expect when treatment begins.</span></div>
+            <div class="video-item"><span class="video-check">✓</span><span><strong>Program support:</strong> bi-weekly peptide coordinator check-ins, monthly body composition scans, nutrition guidance, workout support, and medical team access.</span></div>
+          </div>
+          <div class="callout" style="margin-top:24px;">If they need trust before they book, this video gives them something tangible to see.</div>
+        </div>
+      </div>
+      <div class="reveal-left">
+        <div class="vid-wrap">
+          <a href="https://youtu.be/3Z1VTXJWOlY" target="_blank" rel="noopener noreferrer" class="video-link" aria-label="Watch the Integrity Peptides unboxing video on YouTube">
+            <img src="youtubeclickout.webp" alt="Watch the Integrity Peptides unboxing video">
+            <div class="play-badge"></div>
+            <div class="video-link-text">
+              <strong>Watch The Unboxing Video</strong>
+              <span>See what a real peptide delivery looks like and what patients can expect when it arrives.</span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -551,16 +745,80 @@
 </footer>
 
 <script>
+  let activeScrollAnimation = null;
+
+  function smoothScrollTo(target, highlightColor) {
+    if (!target) return;
+
+    if (activeScrollAnimation) {
+      cancelAnimationFrame(activeScrollAnimation.rafId);
+      window.removeEventListener('wheel', activeScrollAnimation.cancel, { passive: true });
+      window.removeEventListener('touchstart', activeScrollAnimation.cancel, { passive: true });
+      window.removeEventListener('keydown', activeScrollAnimation.cancel);
+      activeScrollAnimation = null;
+    }
+
+    const startY = window.scrollY;
+    const targetRect = target.getBoundingClientRect();
+    const targetY = Math.max(
+      0,
+      startY + targetRect.top - ((window.innerHeight - targetRect.height) / 2)
+    );
+    const distance = targetY - startY;
+    const duration = Math.min(1600, Math.max(950, Math.abs(distance) * 0.9));
+    const startTime = performance.now();
+
+    function easeInOut(t) {
+      return t < 0.5
+        ? 16 * Math.pow(t, 5)
+        : 1 - Math.pow(-2 * t + 2, 5) / 2;
+    }
+
+    function cancelScroll() {
+      if (!activeScrollAnimation) return;
+      cancelAnimationFrame(activeScrollAnimation.rafId);
+      window.removeEventListener('wheel', cancelScroll, { passive: true });
+      window.removeEventListener('touchstart', cancelScroll, { passive: true });
+      window.removeEventListener('keydown', cancelScroll);
+      activeScrollAnimation = null;
+    }
+
+    activeScrollAnimation = { rafId: null, cancel: cancelScroll };
+    window.addEventListener('wheel', cancelScroll, { passive: true });
+    window.addEventListener('touchstart', cancelScroll, { passive: true });
+    window.addEventListener('keydown', cancelScroll);
+
+    function step(currentTime) {
+      if (!activeScrollAnimation) return;
+
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOut(progress);
+      const nextY = startY + (targetY - startY) * eased;
+
+      window.scrollTo(0, nextY);
+
+      if (progress < 1) {
+        activeScrollAnimation.rafId = requestAnimationFrame(step);
+      } else {
+        window.removeEventListener('wheel', cancelScroll, { passive: true });
+        window.removeEventListener('touchstart', cancelScroll, { passive: true });
+        window.removeEventListener('keydown', cancelScroll);
+        activeScrollAnimation = null;
+        target.style.transition = 'box-shadow 0.4s ease';
+        target.style.boxShadow = `0 0 0 4px ${highlightColor}`;
+        setTimeout(() => { target.style.boxShadow = ''; }, 1400);
+      }
+    }
+
+    activeScrollAnimation.rafId = requestAnimationFrame(step);
+  }
+
   document.querySelectorAll('a[href="#book-form"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const form = document.getElementById('book-form');
-      if (form) {
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        form.style.transition = 'box-shadow 0.4s ease';
-        form.style.boxShadow = '0 0 0 4px #E8187A';
-        setTimeout(() => { form.style.boxShadow = ''; }, 1400);
-      }
+      smoothScrollTo(form, '#E8187A');
     });
   });
 
@@ -568,12 +826,7 @@
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const form = document.getElementById('contact-form');
-      if (form) {
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        form.style.transition = 'box-shadow 0.4s ease';
-        form.style.boxShadow = '0 0 0 4px #FFE634';
-        setTimeout(() => { form.style.boxShadow = ''; }, 1400);
-      }
+      smoothScrollTo(form, '#FFE634');
     });
   });
 
