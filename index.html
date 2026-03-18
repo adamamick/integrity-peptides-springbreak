@@ -9,14 +9,14 @@
 <meta property="og:description" content="Book a peptide consultation with Integrity Peptides or send your contact information to get connected quickly.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://integrity-peptides-springbreak.netlify.app/">
-<meta property="og:image" content="https://integrity-peptides-springbreak.netlify.app/og-image.svg">
+<meta property="og:image" content="https://integrity-peptides-springbreak.netlify.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Integrity Peptides consultation booking preview">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Integrity Peptides - Book a Consultation">
 <meta name="twitter:description" content="Book a peptide consultation with Integrity Peptides or send your contact information to get connected quickly.">
-<meta name="twitter:image" content="https://integrity-peptides-springbreak.netlify.app/og-image.svg">
+<meta name="twitter:image" content="https://integrity-peptides-springbreak.netlify.app/og-image.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   @font-face {
@@ -89,6 +89,12 @@
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
   }
   .nav-cta:hover { background: var(--pink-light); transform: scale(1.04); }
+  .nav-actions { display:flex; align-items:center; gap:12px; }
+  .nav-cta.alt {
+    background: var(--yellow);
+    color: var(--black);
+  }
+  .nav-cta.alt:hover { background: white; }
 
   .ticker { background: var(--yellow); padding: 9px 0; overflow: hidden; white-space: nowrap; border-bottom: 3px solid var(--black); }
   .ticker-inner { display: inline-flex; animation: marquee 22s linear infinite; }
@@ -331,7 +337,10 @@
 <body>
 <nav>
   <a href="#top" class="nav-logo">Integrity <span>Peptides</span></a>
-  <a href="#book-form" class="nav-cta">Book Consultation</a>
+  <div class="nav-actions">
+    <a href="#contact-form" class="nav-cta alt">Quick Contact</a>
+    <a href="#book-form" class="nav-cta">Book Consultation</a>
+  </div>
 </nav>
 
 <section class="hero" id="top">
@@ -550,6 +559,19 @@
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
         form.style.transition = 'box-shadow 0.4s ease';
         form.style.boxShadow = '0 0 0 4px #E8187A';
+        setTimeout(() => { form.style.boxShadow = ''; }, 1400);
+      }
+    });
+  });
+
+  document.querySelectorAll('a[href="#contact-form"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        form.style.transition = 'box-shadow 0.4s ease';
+        form.style.boxShadow = '0 0 0 4px #FFE634';
         setTimeout(() => { form.style.boxShadow = ''; }, 1400);
       }
     });
