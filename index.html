@@ -17,6 +17,13 @@
 <meta name="twitter:title" content="Integrity Peptides - Book a Consultation">
 <meta name="twitter:description" content="Book a peptide consultation with Integrity Peptides or send your contact information to get connected quickly.">
 <meta name="twitter:image" content="https://integrity-peptides-springbreak.netlify.app/og-image-clean.png">
+<script>
+  // Paste your real IDs here to enable tracking.
+  window.TRACKING_CONFIG = {
+    ga4MeasurementId: '',
+    metaPixelId: '1274596536964214'
+  };
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   @font-face {
@@ -490,6 +497,11 @@
 </style>
 </head>
 <body>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1274596536964214&ev=PageView&noscript=1"
+       alt="">
+</noscript>
 <nav>
   <a href="#top" class="nav-logo">Integrity <span>Peptides</span></a>
   <div class="nav-actions">
@@ -508,9 +520,9 @@
   </div>
 
   <div class="hero-left">
-    <div class="hero-tag">✦ Quick Consultation</div>
-    <h1>READY TO TALK<br>ABOUT PEPTIDES?<br><span class="h1-pink">BOOK YOUR CONSULT</span></h1>
-    <p class="hero-sub">If you have questions about peptides for weight loss, recovery, energy, or healthy aging, we are here to help. Book a consultation or leave your information and our team will reach out.</p>
+    <div class="hero-tag">✦ Start Here</div>
+    <h1>LET'S TALK ABOUT<br>HOW <span class="h1-pink">PEPTIDES MAY HELP</span></h1>
+    <p class="hero-sub">If you are exploring support for weight loss, recovery, energy, or healthy aging, our team is here to help you understand your options and take the next step with confidence.</p>
     <div class="micro-trust">
       <span>Fastest Next Step</span>
       <span>Calendar First</span>
@@ -745,6 +757,68 @@
 </footer>
 
 <script>
+  const TRACKING_CONFIG = window.TRACKING_CONFIG || {};
+
+  function injectScript(src) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = src;
+    document.head.appendChild(script);
+  }
+
+  function initTracking() {
+    const gaId = (TRACKING_CONFIG.ga4MeasurementId || '').trim();
+    const metaId = (TRACKING_CONFIG.metaPixelId || '').trim();
+
+    if (gaId) {
+      injectScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaId)}`);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', gaId, { send_page_view: true });
+    }
+
+    if (metaId) {
+      (function(f,b,e,v,n,t,s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = true;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = true;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init', metaId);
+      window.fbq('track', 'PageView');
+    }
+  }
+
+  function trackEvent(name, params = {}) {
+    if (window.gtag) {
+      window.gtag('event', name, params);
+    }
+    if (window.fbq) {
+      window.fbq('trackCustom', name, params);
+    }
+  }
+
+  function ctaLabel(el) {
+    return (el.textContent || '')
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, '_')
+      .slice(0, 60) || 'unknown_cta';
+  }
+
+  initTracking();
+
   let activeScrollAnimation = null;
 
   function smoothScrollTo(target, highlightColor) {
@@ -818,6 +892,8 @@
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const form = document.getElementById('book-form');
+      trackEvent('click_book_cta', { cta: ctaLabel(link) });
+      if (window.fbq) window.fbq('track', 'Contact');
       smoothScrollTo(form, '#E8187A');
     });
   });
@@ -826,7 +902,14 @@
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const form = document.getElementById('contact-form');
+      trackEvent('click_quick_contact_cta', { cta: ctaLabel(link) });
       smoothScrollTo(form, '#FFE634');
+    });
+  });
+
+  document.querySelectorAll('.video-link').forEach(link => {
+    link.addEventListener('click', function() {
+      trackEvent('click_unboxing_video', { cta: ctaLabel(link) });
     });
   });
 
@@ -844,6 +927,22 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal, .reveal-left').forEach(el => io.observe(el));
+
+  const trackedSections = new Set();
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      if (!id || trackedSections.has(id)) return;
+      trackedSections.add(id);
+      trackEvent('view_section', { section_id: id });
+    });
+  }, { threshold: 0.55 });
+
+  ['book-form', 'contact-form'].forEach(id => {
+    const section = document.getElementById(id);
+    if (section) sectionObserver.observe(section);
+  });
 </script>
 </body>
 </html>
